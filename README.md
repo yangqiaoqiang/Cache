@@ -26,3 +26,10 @@ Group.Get()实现缓存中存在直接获取，不存在则通过callback函数�
                             |-----> 调用`回调函数`，获取值并添加到缓存 --> 返回缓存值⑶
 ```
 
+## 3.HTTP服务端
+
+建立基于HTTP通信协议的分布式缓存节点间通信
+
+访问格式 /<basepath>/<groupname>/<key>
+
+通过groupname得到group实例，再使用group.Get(key)得到缓存数据

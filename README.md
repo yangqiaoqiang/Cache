@@ -33,3 +33,12 @@ Group.Get()实现缓存中存在直接获取，不存在则通过callback函数�
 访问格式 /<basepath>/<groupname>/<key>
 
 通过groupname得到group实例，再使用group.Get(key)得到缓存数据
+
+## 4.一致性哈希算法
+
+一致性哈希算法将 key 映射到 2^32 的空间中，将这个数字首尾相连，形成一个环。
+
+引入虚拟节点解决节点较少时数据倾斜问题
+
+默认采用***crc32.ChecksumIEEE***算法
+

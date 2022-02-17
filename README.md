@@ -73,3 +73,11 @@ PeerGetter从对应的group上查找缓存值，对应http服务端
 
 针对大量相同并发请求的key，只调用一次数据库获取值，其他的请求sync.GroupWait.Wait()等待直接返回值
 
+## 7.使用protobuf通信
+
+传输前使用 protobuf 编码，接收方再进行解码，可以显著地降低二进制传输的大小。
+
+- `ServeHTTP()` 中使用 `proto.Marshal()` 编码 HTTP 响应。
+- `Get()` 中使用 `proto.Unmarshal()` 解码 HTTP 响应。
+
+将 HTTP 通信的中间载体替换成了 protobuf
